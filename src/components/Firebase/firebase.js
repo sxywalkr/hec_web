@@ -103,6 +103,13 @@ class Firebase {
   message = uid => this.db.ref(`messages/${uid}`);
 
   messages = () => this.db.ref('messages');
+
+  // *** Antrian API ***
+
+  // antrian = nomor => this.db.ref(`messages/${uid}`);
+
+  // antrians = () => this.db.ref('messages');
+
 }
 
 export default Firebase;

@@ -25,6 +25,7 @@ const NavigationAuth = ({ authUser }) => (
     <Container>
       <Menu.Item name="Landing" as={Link} to={ROUTES.LANDING} />
       <Menu.Item name="home" as={Link} to={ROUTES.HOME} />
+      <Menu.Item name="display" as={Link} to={ROUTES.DISPLAY} />
       <Menu.Item name="Account" as={Link} to={ROUTES.ACCOUNT} />
       {!!authUser.roles[ROLES.ADMIN] && (
         <Menu.Item name="Admin" as={Link} to={ROUTES.ADMIN} />
