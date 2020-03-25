@@ -39,6 +39,7 @@ const NavigationNonAuth = () => (
   <Menu pointing secondary>
     <Container>
       <Menu.Item name="home" as={Link} to={ROUTES.LANDING} />
+      <Menu.Item name="display" as={Link} to={ROUTES.DISPLAY} />
       <Menu.Menu position="right">
         <Menu.Item name="signin" as={Link} to={ROUTES.SIGN_IN} />
       </Menu.Menu>

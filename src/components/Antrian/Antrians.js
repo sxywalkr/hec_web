@@ -34,8 +34,8 @@ class Antrians extends Component {
 
     this.props.firebase
       .db
-      // .ref('hecAntrian/indexes/' + format(new Date('2020-03-21', 'yyyy-MM-dd')) + '/detail')
-      .ref('hecAntrian/indexes/2020-03-21/detail')
+      .ref('hecAntrian/indexes/' + format(new Date(), 'yyyy-MM-dd') + '/detail')
+      // .ref('hecAntrian/indexes/2020-03-21/detail')
       .on('value', snapshot => {
         const snapObject = snapshot.val();
         // console.log(snapObject, format(new Date('2020-03-21', 'yyyy-MM-dd')))
@@ -81,7 +81,7 @@ class Antrians extends Component {
 
                 {!loading && !antrians && (
                   <Message info>
-                    <p>Tidak ada antrians ...</p>
+                    <p>Tidak ada antrian ...</p>
                   </Message>
                 )}
 
