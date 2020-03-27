@@ -85,7 +85,17 @@ class Antrians extends Component {
                   </Message>
                 )}
 
+                {/* <InternetCheck
+                  message="No Connection"
+                  style={{
+                    color: "#fff",
+                    backgroundColor: "#000",
+                    textAlign: "center"
+                  }}
+                /> */}
                 
+
+
               </Card.Description>
             </Card.Content>
           </Card>

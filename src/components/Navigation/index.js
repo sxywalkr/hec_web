@@ -7,6 +7,7 @@ import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
 import { Container, Menu } from 'semantic-ui-react';
+import { Offline, Online } from "react-detect-offline";
 
 const Navigation = () => (
   <AuthUserContext.Consumer>
@@ -14,8 +15,8 @@ const Navigation = () => (
       authUser ? (
         <NavigationAuth authUser={authUser} />
       ) : (
-        <NavigationNonAuth />
-      )
+          <NavigationNonAuth />
+        )
     }
   </AuthUserContext.Consumer>
 );
@@ -41,6 +42,9 @@ const NavigationNonAuth = () => (
       <Menu.Item name="home" as={Link} to={ROUTES.LANDING} />
       <Menu.Item name="display" as={Link} to={ROUTES.DISPLAY} />
       <Menu.Menu position="right">
+        {/* <Menu.Item><Online>Connected from {window.navigator.userAgent}</Online></Menu.Item> */}
+        <Menu.Item><Online>Connected</Online></Menu.Item>
+        <Menu.Item><Offline>Disconnected</Offline></Menu.Item>
         <Menu.Item name="signin" as={Link} to={ROUTES.SIGN_IN} />
       </Menu.Menu>
     </Container>
