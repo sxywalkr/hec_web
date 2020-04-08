@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Sound from 'react-sound';
 
 import { AuthUserContext } from '../Session';
 import { withFirebase } from '../Firebase';
@@ -22,6 +23,8 @@ class Antrians extends Component {
       loading: false,
       messages: [],
       limit: 5,
+      antrianTotal: '',
+      antrianTerlayani: '',
     };
   }
 
@@ -31,10 +34,9 @@ class Antrians extends Component {
 
   onListenForMessages = () => {
     this.setState({ loading: true });
-
+    // console.log(format(new Date(), 'YYYY-MM-DD'))
     this.props.firebase
-      .db
-      .ref('hecAntrian/indexes/' + format(new Date(), 'yyyy-MM-dd') + '/detail')
+      .db.ref('hecAntrian/indexes/' + format(new Date(), 'YYYY-MM-DD') + '/detail')
       // .ref('hecAntrian/indexes/2020-03-21/detail')
       .on('value', snapshot => {
         const snapObject = snapshot.val();
@@ -53,6 +55,22 @@ class Antrians extends Component {
           this.setState({ antrians: null, loading: false });
         }
       });
+
+      // this.props.firebase
+      // .db.ref('hecAntrian/indexes/' + format(new Date(), 'YYYY-MM-DD'))
+      // .on('value', snapshot => {
+      //   const snapObject = snapshot.val();
+      //   if ( !snapObject.hasChild) {
+      //     console.log(snapshot.val())
+
+      //     this.setState({
+      //       // antrians: antrianList,
+      //       // loading: false,
+      //     });
+      //   } else {
+      //     // this.setState({ antrians: null, loading: false });
+      //   }
+      // });
   };
 
   componentWillUnmount() {
@@ -84,17 +102,6 @@ class Antrians extends Component {
                     <p>Tidak ada antrian ...</p>
                   </Message>
                 )}
-
-                {/* <InternetCheck
-                  message="No Connection"
-                  style={{
-                    color: "#fff",
-                    backgroundColor: "#000",
-                    textAlign: "center"
-                  }}
-                /> */}
-                
-
 
               </Card.Description>
             </Card.Content>
